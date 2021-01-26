@@ -26,6 +26,22 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('surname') is-invalid @enderror" name="name" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+
+                                @error('surname')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -33,6 +49,84 @@
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Number') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('number') is-invalid @enderror" name="name" value="{{ old('number') }}" required autocomplete="number" autofocus>
+
+                                @error('number')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Post Code') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('postcode') is-invalid @enderror" name="name" value="{{ old('postcode') }}" required autocomplete="postcode" autofocus>
+
+                                @error('postcode')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Age') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('age') is-invalid @enderror" name="name" value="{{ old('age') }}" required autocomplete="age" autofocus>
+
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Terms and Conditions
+                                    </label>
+                                </div>
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+
+
+                            <div class="col-md-6">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        j
+                                    </label>
+                                </div>
+                                @error('age')
+                                <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
