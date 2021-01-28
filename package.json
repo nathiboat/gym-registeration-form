@@ -10,6 +10,7 @@
         "production": "mix --production"
     },
     "devDependencies": {
+        "@stripe/stripe-js": "^1.11.0",
         "axios": "^0.21",
         "bootstrap": "^4.0.0",
         "jquery": "^3.2",
@@ -23,8 +24,5 @@
         "vue": "^2.5.17",
         "vue-loader": "^15.9.5",
         "vue-template-compiler": "^2.6.10"
-    },
-    "dependencies": {
-        "stripe": "^8.132.0"
     }
 }

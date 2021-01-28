@@ -23,9 +23,17 @@
 </template>
 
 <script>
+import { loadStripe } from '@stripe/stripe-js'
+
 export default {
-    mounted() {
-        console.log('Component mounted.')
+
+    async mounted() {
+        this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
+        let elements = this.stripe.elements();
+
+        const skus = await this.stripe.skus.list({limit: 3});
+        console.log(skus)
+
     }
 }
 </script>
