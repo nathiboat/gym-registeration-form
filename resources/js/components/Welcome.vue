@@ -12,8 +12,11 @@
                         </p>
 
                         <div class="d-flex flex-column flex-md-row text-center">
-                            <a href="/" class="btn btn-lg btn-bd-primary mb-3 me-md-3">Get started</a>
-                            <a href="/" class="btn btn-lg btn-outline-secondary mb-3">Download</a>
+                            <location-card
+                                v-for="location in locations"
+                                :key="location.id"
+                                :location="location"
+                            />
                         </div>
                     </div>
                 </div>
@@ -24,15 +27,26 @@
 
 <script>
 import { loadStripe } from '@stripe/stripe-js'
+import axios from 'axios'
 
 export default {
+    data () {
+        return {
+            locations: null
+        }
+    },
 
+    methods: {
+        async getLocations() {
+            let response = await axios.get('/api/locations')
+
+            this.locations = response.data
+        },
+    },
     async mounted() {
-        this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
-        let elements = this.stripe.elements();
 
-        const skus = await this.stripe.skus.list({limit: 3});
-        console.log(skus)
+        console.log(this.getLocations())
+        //this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
 
     }
 }
