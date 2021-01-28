@@ -5,7 +5,7 @@
                 <div class="row align-items-lg-center">
 
                     <div class="col text-center text-md-start">
-                        <h1 class="mb-3">SIGN UP NOW & BE READY FOR WHEN WE REOPEN</h1>
+                        <page-title />
                         <p class="lead mb-4">
                             FIND A GYM NEAR YOU <br>
                             5 locations to choose from

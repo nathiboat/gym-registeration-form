@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Display plan from user selected
+Route::get('/plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans');
+
+
+
