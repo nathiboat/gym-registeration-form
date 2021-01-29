@@ -3,7 +3,7 @@
 * Unzip folder or clone the repository
 
 ### config
-make sure you have these config in your .env file
+make sure you have these config in your .env file with the right value of database credentials 
 ``` bash
 STRIPE_KEY=pk_test_51IDuKHFvxnKmnYt8pB5QyBgzYQbIMAR3cTtYt3dCNFNyFRJuPO2VrEmeiR5mFMClyrHC0QtHlTqwGT574SYQNX4j00lGVQMNfj
 STRIPE_SECRET=sk_test_51IDuKHFvxnKmnYt8kah6sOlLD5j6WbO9UtN47vytQFjxP1mzMoE1c7ag2lXd47aFcr1bJTQJuFNl8kwVSlmusdb600YLAzpHKU
