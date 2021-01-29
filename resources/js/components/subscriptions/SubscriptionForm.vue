@@ -1,4 +1,6 @@
 <template>
+    <div>
+        <h2>Your detail</h2>
     <div class="card">
         <div class="card-body">
             <form>
@@ -44,13 +46,6 @@
                         v-model="form.age"
                     >
                 </div>
-                <div class="mb-3 text-center">
-                    <label>Card details</label>
-                </div>
-                <div class="form-group border border-gray round p-3">
-
-                    <div id="card-element"></div>
-                </div>
 
                 <div class="mb-3 form-check">
                     <input
@@ -73,7 +68,7 @@
                 </div>
 
                 <button
-                    type="submit" class="btn btn-dark" @click.prevent="submitForm"
+                    type="submit" class="btn btn-dark" @click.prevent="saveUser"
                     v-model="submitButton"
                 >
                     Submit
@@ -81,11 +76,12 @@
             </form>
         </div>
     </div>
+    </div>
 </template>
 
 <script>
-import { loadStripe } from '@stripe/stripe-js'
-import axios from "axios";
+
+import { mapMutations } from 'vuex'
 
 export default {
     props: {
@@ -117,6 +113,9 @@ export default {
     },
 
     methods: {
+        ...mapMutations({
+            mutateUser: 'user/mutateUser'
+        }),
         async getPlan() {
             try {
                 const response = await axios.get('/api/plans/' + this.plan)
@@ -126,64 +125,13 @@ export default {
                 console.error(error);
             }
         },
-        async submitForm() {
+        async saveUser() {
 
-            this.form.plan = this.plan
-            this.paymentProcessing = true
-            //process.env.MIX_STRIPE_SECRET
-
-            // const { setupIntent, error } = await this.stripe.confirmCardSetup(
-            //     process.env.MIX_STRIPE_SECRET, {
-            //         payment_method: {
-            //             card: this.cardElement,
-            //             billing_details: {
-            //                 name: this.form.name + ' ' + this.form.surname,
-            //                 email: this.form.email,
-            //                 address: {
-            //                     postal_code: this.form.postcode
-            //                 }
-            //             }
-            //         }
-            //     }
-            // )
-            const { paymentMethod , error } = await this.stripe.createPaymentMethod(
-                'card', this.cardElement, {
-                    billing_details: {
-                        name: this.form.name + ' ' + this.form.surname,
-                        email: this.form.email,
-                        address: {
-                            postal_code: this.form.postcode
-                        }
-                    }
-                }
-            )
-
-            if(error) {
-                this.paymentProcessing = false
-                alert(error)
-            } else {
-                this.form.payment_method_id = paymentMethod.id
-
-                try {
-                    await axios.post('/api/subscriptions', {form: this.form}).then(() =>{
-                        //window.location.href = '/'
-                    })
-
-                } catch (error) {
-                    console.error(error);
-                }
-            }
-
+            this.mutateUser(this.form)
 
         },
     },
     async mounted() {
-        this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
-
-        const elements = this.stripe.elements()
-        this.cardElement = elements.create('card')
-
-        this.cardElement.mount('#card-element');
         this.getPlan()
     }
 }

@@ -30,8 +30,8 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions } from 'vuex'
 
-    import axios from 'axios'
     export default {
         props: {
             stripe_product_id: {
@@ -39,27 +39,22 @@
                 type: String
             }
         },
-        data () {
-            return {
-                plans: null
-            }
+
+        computed: {
+          ...mapGetters({
+              plans: 'plan/plans'
+          })
         },
 
         methods: {
-            async getPlans() {
-                try {
-                    const response = await axios.get('/api/plans', {
-                        params: {
-                            stripe_product_id: this.stripe_product_id
-                        }
-                    })
-
-                    this.plans = response.data
-                } catch (error) {
-                    console.error(error);
-                }
-            },
+            ...mapActions({
+               getPlans: 'plan/getPlans'
+            })
         },
+
+        mounted() {
+            this.getPlans(this.stripe_product_id)
+        }
     }
 </script>
 

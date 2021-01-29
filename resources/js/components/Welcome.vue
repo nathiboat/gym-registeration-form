@@ -41,5 +41,8 @@ export default {
             this.locations = response.data
         },
     },
+    mounted() {
+        this.getLocations()
+    }
 }
 </script>

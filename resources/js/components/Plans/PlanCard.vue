@@ -1,5 +1,5 @@
 <template>
-    <div class="card" style="width: 18rem; cursor:pointer; " @click="selectLocation">
+    <div class="card" style="width: 18rem; cursor:pointer; ">
         <div class="card-body d-flex flex-column justify-content-between" style="height: 150px;">
             <h5 class="card-title align-top">{{ plan.title }}</h5>
             <h4 class="card-text"> £{{ plan.price }}</h4>
@@ -15,17 +15,25 @@
 </template>
 
 <script>
-export default {
-    props: {
-        plan: {
-            required: true,
-            type: Object
+    import { mapMutations } from 'vuex'
+    export default {
+        props: {
+            plan: {
+                required: true,
+                type: Object
+            }
+        },
+
+
+        methods: {
+            ...mapMutations({
+               mutateSelectedPlan: 'plan/mutateSelectedPlan'
+            }),
+            selectPlan () {
+
+                this.mutateSelectedPlan(this.plan)
+                window.location.href = '/subscriptions?plan=' + this.plan.slug
+            }
         }
-    },
-    methods: {
-        selectPlan () {
-            window.location.href = '/subscriptions?plan=' + this.plan.slug
-        }
-    }
 }
 </script>

@@ -21,10 +21,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Display plan from user selected
+
 Route::get('/plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans');
 
+
 Route::get('/subscriptions', [App\Http\Controllers\SubscriptionController::class, 'index'])->name('subscriptions');
+Route::get('/thankyou', [App\Http\Controllers\SubscriptionController::class, 'thankyou'])->name('thankyou');
 
 
 
