@@ -38,4 +38,6 @@ $ php artisan serve
 
 From the optionals tank in this case I would like to add validation on form and also send email to clients
 I have already for structure I have already setup for a large application with a help of Vuex so there is no worry
-if the project is getting bigger.
+if the project is getting bigger. 
+
+If I have more time I will write commend and add testing make sure if the project not break anywhere possible.  
