@@ -5,11 +5,15 @@
                 <div class="row align-items-lg-center">
 
                     <div class="col text-center text-md-start">
-                        <page-title />
+                        <global-page-title />
                         <p class="lead mb-4">
                             Which plan is right for you?
                         </p>
-
+                        <div class="row mb-2">
+                            <div class="col">
+                                <a href="/" class="btn btn-primary text-center">< Back</a>
+                            </div>
+                        </div>
                         <div class="d-flex flex-column flex-md-row text-center">
                             <plan-card
                                 v-for="plan in plans"
@@ -26,7 +30,7 @@
 </template>
 
 <script>
-    import { loadStripe } from '@stripe/stripe-js'
+
     import axios from 'axios'
     export default {
         props: {
@@ -56,12 +60,6 @@
                 }
             },
         },
-        async mounted() {
-
-            console.log(this.getPlans())
-            //this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
-
-        }
     }
 </script>
 

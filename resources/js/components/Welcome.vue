@@ -5,7 +5,7 @@
                 <div class="row align-items-lg-center">
 
                     <div class="col text-center text-md-start">
-                        <page-title />
+                        <global-page-title />
                         <p class="lead mb-4">
                             FIND A GYM NEAR YOU <br>
                             5 locations to choose from
@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import { loadStripe } from '@stripe/stripe-js'
-import axios from 'axios'
 
 export default {
     data () {
@@ -43,11 +41,5 @@ export default {
             this.locations = response.data
         },
     },
-    async mounted() {
-
-        console.log(this.getLocations())
-        //this.stripe = await loadStripe(process.env.MIX_STRIPE_KEY)
-
-    }
 }
 </script>

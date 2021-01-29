@@ -24,5 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Display plan from user selected
 Route::get('/plans', [App\Http\Controllers\PlanController::class, 'index'])->name('plans');
 
+Route::get('/subscriptions', [App\Http\Controllers\SubscriptionController::class, 'index'])->name('subscriptions');
+
 
 

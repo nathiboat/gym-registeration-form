@@ -3,7 +3,13 @@
         <div class="card-body d-flex flex-column justify-content-between" style="height: 150px;">
             <h5 class="card-title align-top">{{ plan.title }}</h5>
             <h4 class="card-text"> £{{ plan.price }}</h4>
-            <button type="button" class="btn btn-dark align-bottom">Select Plan</button>
+            <button
+                type="button"
+                class="btn btn-dark align-bottom"
+                @click="selectPlan"
+            >
+                Select Plan
+            </button>
         </div>
     </div>
 </template>
@@ -17,8 +23,8 @@ export default {
         }
     },
     methods: {
-        selectLocation () {
-
+        selectPlan () {
+            window.location.href = '/subscriptions?plan=' + this.plan.slug
         }
     }
 }
