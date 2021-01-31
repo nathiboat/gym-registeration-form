@@ -1,3 +1,8 @@
+## Tech stack I have used in this app
+Frontend: VueJS (JavaScript), Bootstrap (CSS), BLADE (PHP/HTML). 
+
+Backend: Laravel (PHP), MySQL
+
 ## How to run the app
 
 * Unzip folder or clone the repository
