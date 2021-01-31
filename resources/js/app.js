@@ -24,11 +24,13 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 
 import user from './store/user'
 import plan from './store/plan'
+import location from './store/location'
 
 const store = new Vuex.Store({
     modules: {
         user,
-        plan
+        plan,
+        location
     }
 })
 
