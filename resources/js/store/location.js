@@ -4,7 +4,7 @@ export default {
     namespaced: true,
 
     state: {
-        locations: {},
+        locations: [],
     },
 
     getters: {
@@ -15,7 +15,7 @@ export default {
 
     mutations: {
         mutateLocations (state, data) {
-            state.plans = data
+            state.locations = data
         }
     },
 
@@ -26,6 +26,8 @@ export default {
                 let response = await axios.get('/api/locations')
 
                 this.locations = response.data
+
+                console.log(response.data)
 
                 commit('mutateLocations', response.data)
 

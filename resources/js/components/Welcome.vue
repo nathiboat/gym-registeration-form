@@ -29,11 +29,7 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-    data () {
-        return {
-            locations: null
-        }
-    },
+
     computed: {
         ...mapGetters({
             locations: 'location/locations'
