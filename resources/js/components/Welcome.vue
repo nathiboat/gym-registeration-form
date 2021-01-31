@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
     data () {
@@ -33,13 +34,16 @@ export default {
             locations: null
         }
     },
+    computed: {
+        ...mapGetters({
+            locations: 'location/locations'
+        })
+    },
 
     methods: {
-        async getLocations() {
-            let response = await axios.get('/api/locations')
-
-            this.locations = response.data
-        },
+        ...mapActions({
+            getLocations: 'location/getLocations'
+        })
     },
     mounted() {
         this.getLocations()
